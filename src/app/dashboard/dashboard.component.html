@@ -1,0 +1,35 @@
+<div fxLayout="column" fxFlex="100">
+    <div  fxFlex="100" fxLayout="column" fxLayoutAlign="space-between">
+        <div *ngIf="Notes" style="margin-top:20px;margin-left: 5%;">
+            <div class="cards" fxLayout="row" fxLayoutGap="1em" fxFlex="40">
+                <mat-card  *ngFor="let note of Notes;let i=index" style="width:40%;">
+                    <mat-card-content style="height:120px;" fxLayout="column" fxLayoutAlign="space-evenly">
+                    <div>
+                        
+                        <label style="display:flex;">Title: <span class="ellipsis-text ">{{ note?.title}}</span></label>
+                    
+                </div>
+                <div>
+                    <div class="ellipsis-text ">
+                        <label>{{ note?.content }}</label>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end">
+                <button mat-mini-fab color="primary" (click)="opendilogue(i);note.action=&apos;edit&apos;"><mat-icon>edit</mat-icon></button>
+            </div>
+            </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <div *ngIf="!Notes" fxFlex="50" fxLayout="column" fxLayoutAlign="center center">
+            <h1>Create a Note</h1>
+        </div>
+        <div fxLayout="row" fxFlex="10" fxLayoutAlign="end">
+            <button mat-mini-fab>
+            <mat-icon class="pointer" matTooltip="Create New Note" (click)="createnotes()">add</mat-icon>
+            </button>
+        </div>
+    </div>
+  
+</div>

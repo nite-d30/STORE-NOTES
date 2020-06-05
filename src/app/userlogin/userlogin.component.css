@@ -1,0 +1,14 @@
+
+.isvalid{
+    font-size: 20px;
+    color:#1a8cff;
+
+}
+.isinvalid{
+    font-size: 20px;
+    /* color:#d6d7e0; */
+
+}
+.background{
+    background-color:  #6cb33f;
+}
