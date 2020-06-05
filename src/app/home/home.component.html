@@ -1,0 +1,23 @@
+<ng-container>
+    <mat-toolbar class="example-header">
+        <div fxLayout="row" fxFlex="900" fxLayoutAlign="start"><label style="color:aliceblue">NOTE-TAKING-APP</label>
+        </div>
+
+        <div flexLayout="row" fxFlex="15" fxLayoutAlign="space-evenly center">
+            <mat-icon class="pointer" style="color:white" matTooltip="{{email}}">account_circle</mat-icon>
+
+            <button mat-raised-button  (click)="log()" color="primary">{{userService.isLoggedIn() ? 'Logout' : 'Login'}}</button>
+        </div>
+    </mat-toolbar>  
+    <mat-sidenav-container class="example-container">
+        <mat-sidenav mode="side" opened class="example-sidenav">
+
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+</ng-container>
