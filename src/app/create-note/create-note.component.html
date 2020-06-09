@@ -6,10 +6,10 @@
     </mat-form-field>
     <mat-form-field style="width: 100%;" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;">
         <mat-label>Notes</mat-label>
-        <textarea matInput rows="20" [(ngModel)]="notes.content" placeholder="write here...."></textarea>
+        <textarea matInput rows="5" [(ngModel)]="notes.content" placeholder="write here...."></textarea>
     </mat-form-field>
     <div fxFlex="50" fxLayout="row" fxLayoutAlign="space-evenly">
-        <button mat-button color="primary" (click)="createnote(true)">{{notes.action == 'edit'?'Update': 'Create'}}</button>
-        <button mat-button color="primary" (click)="createnote(false)">Cancel</button>
+        <button mat-raised-button color="primary" (click)="createnote(true)">{{notes.action == 'edit'?'Update': 'Create'}}</button>
+        <button mat-raised-button  (click)="createnote(false)">Cancel</button>
     </div>
 </div>

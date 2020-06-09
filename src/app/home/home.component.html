@@ -3,14 +3,51 @@
         <div fxLayout="row" fxFlex="900" fxLayoutAlign="start"><label style="color:aliceblue">NOTE-TAKING-APP</label>
         </div>
 
-        <div flexLayout="row" fxFlex="15" fxLayoutAlign="space-evenly center">
-            <mat-icon class="pointer" style="color:white" matTooltip="{{email}}">account_circle</mat-icon>
-
-            <button mat-raised-button  (click)="log()" color="primary">{{userService.isLoggedIn() ? 'Logout' : 'Login'}}</button>
+        <div flexLayout="row" fxFlex="10" fxLayoutAlign="space-around center">
+            <mat-icon [matMenuTriggerFor]="menu" class="pointer" style="color:white">
+                account_circle</mat-icon>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item class="green">Profile</button>
+                <button mat-menu-item class="green"
+                    (click)="log()">{{userService.isLoggedIn() ? 'Logout' : 'Login'}}</button>
+            </mat-menu>
         </div>
-    </mat-toolbar>  
+    </mat-toolbar>
     <mat-sidenav-container class="example-container">
         <mat-sidenav mode="side" opened class="example-sidenav">
+            <div fxLayout="column" fxFlex="100" fxLayoutAlign="space-between">
+
+                <div fxFlex="80" fxLayout="column" fxLayoutGap="1em">
+                    <div fxFlex="30"  fxLayout="column" fxLayoutGap="1em" style="border-bottom: 1px solid white;" fxLayoutAlign="center center">
+                        
+                        <div fxLayout="column"  style="height: 30%;width:30%">
+                            <img *ngIf="upload" class="img-style" src="assets/profile.png">
+                            <mat-icon *ngIf="!upload" class="icon-style">account_circle</mat-icon>
+                            <div (click)="fileInput.click();">
+                            <input id="input_fileinput_uploadlead" (click)="fileInput.value = null"  type="file" accept=".png,.jpg,.jpeg" #fileInput style="display:none;" (change)="handleFileInput($event)">
+                     
+                            <mat-icon  class="capture pointer" fxLayout="column" fxLayoutAlign="center center" >add_a_photo</mat-icon>
+                        </div>
+                        </div>
+                        <div>
+                            <span class="color-white">{{email}}</span>
+                        </div>
+                    </div>
+                    <div fxFlex="10" routerLink="/home/notes" class="nav-buttons pointer" fxLayout="row"
+                        fxLayoutAlign="center center"><span>Notes</span>
+                    </div>
+                    <div fxFlex="10" class="nav-buttons pointer" fxLayout="row" fxLayoutAlign="center center">
+                        <span>Documents</span>
+                    </div>
+                    <div fxFlex="10" class="nav-buttons pointer" fxLayout="row" fxLayoutAlign="center center">
+                        <span>Pictures</span>
+                    </div>
+                </div>
+                <div fxFlex="15" style="border-top: 1px solid white;" fxLayout="column" fxLayoutAlign="center center">
+                    <span class="font-10" style="color:white">NOTE-APP</span>
+                    <span class="font-10" style="color:white">Version: </span>
+                </div>
+            </div>
 
         </mat-sidenav>
 

@@ -13,12 +13,15 @@ app-dashboard {
     height: 100%;
 }
 
+.color-white{
+    color: white;
+}
 .pointer {
     cursor: pointer;
 }
 .ellipsis-text {
     white-space: nowrap;
-    width: 64px;
+    width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
     cursor: pointer;
@@ -26,3 +29,20 @@ app-dashboard {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.btn-color{
+    background: rgba(20, 20, 20, 0.76);
+}
+
+.green{
+    color: #6cb33f;
+}
+
+.font-10{
+    font-size: 10px;
+}
+
+.dashboard-icon .mat-icon{
+    height:115px;
+    width: 0px;
+}

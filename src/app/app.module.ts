@@ -12,10 +12,12 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import { HomeComponent } from './home/home.component';
 import { CreateNoteComponent } from './create-note/create-note.component';
 import { DashboardComponent } from './dashboard/dashboard.component'
+import {MatGridListModule} from '@angular/material/grid-list';
 
 //authgaurd
 import {AuthGuard} from './auth/auth.guard'
 import {AuthInterceptor} from './auth/auth.intercepter';
+import { NotesComponent } from './notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {AuthInterceptor} from './auth/auth.intercepter';
     UserloginComponent,
     HomeComponent,
     CreateNoteComponent,
-    DashboardComponent
+    DashboardComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import {AuthInterceptor} from './auth/auth.intercepter';
     BrowserAnimationsModule,
     MaterailModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatGridListModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true
