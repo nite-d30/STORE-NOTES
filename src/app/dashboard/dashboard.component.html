@@ -1,35 +1,13 @@
-<div fxLayout="column" fxFlex="100">
-    <div  fxFlex="100" fxLayout="column" fxLayoutAlign="space-between">
-        <div *ngIf="Notes" style="margin-top:20px;margin-left: 5%;">
-            <div class="cards" fxLayout="row" fxLayoutGap="1em" fxFlex="40">
-                <mat-card  *ngFor="let note of Notes;let i=index" style="width:40%;">
-                    <mat-card-content style="height:120px;" fxLayout="column" fxLayoutAlign="space-evenly">
-                    <div>
-                        
-                        <label style="display:flex;">Title: <span class="ellipsis-text ">{{ note?.title}}</span></label>
-                    
-                </div>
-                <div>
-                    <div class="ellipsis-text ">
-                        <label>{{ note?.content }}</label>
-                </div>
-            </div>
-
-            <div fxLayout="row" fxLayoutAlign="end">
-                <button mat-mini-fab color="primary" (click)="opendilogue(i);note.action=&apos;edit&apos;"><mat-icon>edit</mat-icon></button>
-            </div>
-            </mat-card-content>
-                </mat-card>
-            </div>
+<div fxLayout="column" fxFlex="100" fxLayoutAlign="center center">
+   <div fxLayout="row" fxFlex="90" style="width:100%" fxLayoutAlign="start stretch">
+       <div  routerLink="/home/notes" fxFlex="20" class="notes-height dashboard-icon pointer" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1em">
+            <mat-icon class="notes">note</mat-icon>
+            <span class="title">Notes....</span>
         </div>
-        <div *ngIf="!Notes" fxFlex="50" fxLayout="column" fxLayoutAlign="center center">
-            <h1>Create a Note</h1>
-        </div>
-        <div fxLayout="row" fxFlex="10" fxLayoutAlign="end">
-            <button mat-mini-fab>
-            <mat-icon class="pointer" matTooltip="Create New Note" (click)="createnotes()">add</mat-icon>
-            </button>
+   
+        <div fxFlex="20" class="notes-height dashboard-icon pointer" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1em">
+            <mat-icon class="doc">note</mat-icon>
+            <span class="title">Docs....</span>
         </div>
     </div>
-  
 </div>

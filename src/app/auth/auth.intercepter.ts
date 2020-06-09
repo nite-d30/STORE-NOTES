@@ -4,6 +4,8 @@ import { tap, map} from 'rxjs/operators';
 import { UserserviceService } from '../userservice.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+
+
 @Injectable()
 
 export class AuthInterceptor implements HttpInterceptor{
@@ -21,7 +23,10 @@ export class AuthInterceptor implements HttpInterceptor{
                 
                 if(err.error.auth==false){
                                         
-                    this.rout.navigate(['/home'])
+                    this.rout.navigate(['/home/dashboard'])
+                    
+               
+                    
                     this.userService.deletetoken();
                 }
               })

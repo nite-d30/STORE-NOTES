@@ -12,10 +12,14 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
+
 @NgModule({
     declarations: [],
     imports: [MatFormFieldModule,
         MatInputModule,
+        MatMenuModule,
+
         FlexLayoutModule,
         MatButtonModule,
         MatCardModule,
@@ -32,7 +36,9 @@ import { ReactiveFormsModule } from '@angular/forms';
         FlexLayoutModule,
         ReactiveFormsModule,
         MatButtonModule,
+        MatMenuModule,
         MatCardModule,
+
         MatSidenavModule,
         MatSnackBarModule,
         MatDialogModule,

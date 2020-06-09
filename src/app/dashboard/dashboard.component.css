@@ -1,5 +1,22 @@
+
 .cards{
     max-height: 160px;
     min-width: 20%;
     }
-    
+.notes-height{
+    height: 25%;
+}
+.notes{
+    color:burlywood;
+    font-size: 115px;
+    z-index: -1;
+}
+.title{
+    position:absolute;
+}
+
+.doc{
+    color:rgb(136, 169, 240);
+    font-size: 115px;
+    z-index: -1;
+}
