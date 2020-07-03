@@ -22,7 +22,7 @@ export class NotesComponent implements OnInit {
   }
 
   getNotes() {
-    this.email = this.userService.getUserPayload()['username'];
+    this.email = this.userService.getUserPayload()['username'] 
     this.notesService.getNotes(this.email).subscribe(res => {
       this.Notes = res['notes'];
   

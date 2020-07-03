@@ -23,7 +23,7 @@ export class AuthInterceptor implements HttpInterceptor{
                 
                 if(err.error.auth==false){
                                         
-                    this.rout.navigate(['/home/dashboard'])
+                    this.rout.navigate(['/login'])
                     
                
                     

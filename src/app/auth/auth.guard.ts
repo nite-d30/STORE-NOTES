@@ -16,16 +16,11 @@ export class AuthGuard implements CanActivate {
       if(!this.userService.isLoggedIn())
       {
         
-        this.rout.navigate(['/home/dashboard'])
+        this.rout.navigate(['/login'])
                   
         this.userService.deletetoken();
  
-        this.rout.events.subscribe((event: Event) => {
-          
-              if(event['url']=="/home/notes"){
-                  this.Nsnackbar.open('Please login to create Notes', 'close', { duration: 2000 })
-                  return false;
-              }});
+
         return false;
       }
     return true;
