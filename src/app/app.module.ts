@@ -37,6 +37,7 @@ import { NotesComponent } from './notes/notes.component';
     FormsModule,
     MatGridListModule
   ],
+  entryComponents:[NotesComponent],
   providers: [{
     provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true
   },AuthGuard,UserserviceService],
