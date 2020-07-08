@@ -20,17 +20,9 @@ upload=false;
   }
 
   log() {
-    if(this.userService.isLoggedIn()){
-      this.userService.deletetoken();
-      this.rout.navigate(['/home/dashboard']);
-      this.email='';
-    }else{
       this.userService.deletetoken();
       this.rout.navigate(['/login']);
-    }
-
-
-  }
+     }
 
  //Function to upload selected file to the server.
  handleFileInput(event) {

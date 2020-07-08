@@ -22,15 +22,20 @@ export class UserloginComponent implements OnInit {
   }
   submit(userdata) {
 
+    if(this.userdata.valid){
 
-    this.userService.userlogin(userdata).subscribe(res => {
+      this.userService.userlogin(userdata).subscribe(res => {
 
-      this.userService.setToken(res['token']);
-      this.rout.navigate(['/home/dashboard']);
-    }, err => {
-      this.snackbar.open(err.error, 'close', { duration: 2000 })
+        this.userService.setToken(res['token']);
+        this.rout.navigate(['/home/dashboard']);
+      }, err => {
+        this.snackbar.open(err.error, 'close', { duration: 2000 })
+      }
+      )
+  
+    }else{
+      this.snackbar.open('invalid username or password', 'close', { duration: 2000 })
     }
-    )
 
   }
 

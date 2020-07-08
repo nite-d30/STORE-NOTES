@@ -14,6 +14,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 
+import { NotesComponent } from './notes/notes.component';
 @NgModule({
     declarations: [],
     imports: [MatFormFieldModule,
@@ -29,7 +30,8 @@ import {MatMenuModule} from '@angular/material/menu';
         MatTooltipModule,
         MatDialogModule,
         MatSidenavModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        
     ],
     exports:[MatFormFieldModule,
         MatInputModule,
@@ -38,7 +40,7 @@ import {MatMenuModule} from '@angular/material/menu';
         MatButtonModule,
         MatMenuModule,
         MatCardModule,
-
+    
         MatSidenavModule,
         MatSnackBarModule,
         MatDialogModule,

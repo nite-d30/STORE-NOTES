@@ -1,7 +1,10 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxFlex="100" class="background">
-    <mat-card style="width:30%;" >
-        <div fxLayout="row" fxLayoutAlign="center">
-            <h2>Login here</h2>
+    <mat-card style="width:40%" fxLayout="column" fxLayoutGap="1em">
+        <div fxLayout="row" style="background-color: black;color: white;" fxFlex="40" fxLayoutAlign="center center">
+          <h2 style="margin: 15px;">   Login here</h2>
+        </div>
+        <div fxLayout="row" class="login-icon" fxLayoutAlign="center center">
+            <mat-icon>account_circle</mat-icon>
         </div>
         <form [formGroup]="userdata" (ngSubmit)="submit(userdata.value)">
             <div fxLayout="column" fxlayoutAlign="center center">
@@ -26,7 +29,7 @@
                     <mat-error *ngIf="userdata.controls.password.errors?.pattern">invalid password</mat-error>
                 </mat-form-field>
                 <div fxLayout="row" fxLayoutAlign="center">
-                    <button mat-raised-button [disabled]="!userdata.valid" type="submit" color="primary">Login</button>
+                    <button class="login-button" mat-button type="submit">Login</button>
                 </div>
             </div>
         </form>

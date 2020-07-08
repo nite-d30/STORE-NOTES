@@ -9,7 +9,6 @@ export class NotesService {
 
 
   storeNotes(obj) {
-    console.log(obj)
     return this.http.post(`${this.baseUrl}/storenotes`,obj)
   }
 

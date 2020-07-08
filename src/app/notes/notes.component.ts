@@ -18,23 +18,21 @@ export class NotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNotes();
-
+    console.log(this.Notes)
+   
   }
 
   getNotes() {
     this.email = this.userService.getUserPayload()['username'] 
     this.notesService.getNotes(this.email).subscribe(res => {
       this.Notes = res['notes'];
-  
+      
     })
   }
 
 
   createnotes() {
     let notesobj = {
-      email: '',
-      title: '',
-      content: '',
       action: 'create'
     }
     this.Notes.push(notesobj)
@@ -56,6 +54,7 @@ export class NotesComponent implements OnInit {
     }).afterClosed().subscribe(result => {
       if (result.status) {
         if (result.notesobj['action'] == 'create') {
+          result.notesobj['email']=this.userService.getUserPayload()['username'];
           this.notesService.storeNotes(result.notesobj).subscribe();
           this.getNotes();
         }

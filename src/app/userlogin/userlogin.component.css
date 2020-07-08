@@ -10,5 +10,11 @@
 
 }
 .background{
-    background-color:  #6cb33f;
+   background-image: url('../../assets/notescomputer.jpg');
+   background-size: cover;
+}
+
+.login-button{
+    color:white;
+    background-color: black;
 }
