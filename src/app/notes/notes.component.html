@@ -1,49 +1,67 @@
 <div fxLayout="column" fxFlex="100" fxLayoutAlign="center center">
-  <div fxLayout="row" fxFlex="100" style="width: 100%;"  fxLayoutAlign="start stretch" fxLayoutAlign="start stretch">
-    <div fxFlex="100" style="width:100%;height:100%;" fxLayout="column" fxLayoutAlign="space-between">
-        <div *ngIf="Notes.length>0" fxLayout="column wrap" fxFlex="100" style="margin-left: 5%;">
-            <div fxLayout="row wrap" fxLayoutGap="1em" style="width: 100%;">
-                <mat-grid-list cols="3" rowHeight="170px" style="width:100%;" >
-                    <mat-grid-tile  *ngFor="let note of Notes;let i=index">
-                        <mat-card class="card-background" >
-                            <mat-card-content fxFlex="100" fxLayout="column" fxLayoutGap="1em" fxLayoutAlign="space-between">
-        
-                                <div flexLayout="column" fxFlex="60">
-                                    <div>
-                                        <label style="display: flex;" class="title">Title: <span
-                                                class="ellipsis-text" [matTooltip]="note?.title">{{ note?.title}}</span></label>
+    <div fxLayout="row" fxFlex="100" style="width: 100%;" fxLayoutAlign="start stretch" fxLayoutAlign="start stretch">
+        <div fxFlex="100" style="width:100%;height:100%;" fxLayout="column" fxLayoutAlign="space-between">
+            <div *ngIf="Notes.length>0" fxLayout="column wrap" fxFlex="100">
+                <mat-toolbar *ngIf="updateAllComplete()" style="background-color: rgb(200, 214, 214);">
+                    <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="space-between center">
+                        <mat-checkbox [checked]="allComplete" [indeterminate]="someComplete()"
+                            (change)="setAll($event.checked)">select All</mat-checkbox>
+                        <mat-icon class="pointer" (click)="deletenotes()" matTooltip="delete note">delete_forever
+                        </mat-icon>
+                    </div>
+
+                </mat-toolbar>
+                <div fxLayout="row wrap" fxLayoutGap="1em" style="width: 100%;">
+                    <mat-grid-list cols="3" rowHeight="170px" style="width:100%;">
+                        <mat-grid-tile *ngFor="let note of Notes;let i=index">
+                            <mat-card class="card-background">
+                                <mat-card-content fxFlex="100" fxLayout="column" fxLayoutGap="1em"
+                                    fxLayoutAlign="space-between">
+
+                                    <div flexLayout="column" fxFlex="60">
+                                        <div style="display: flex;" fxLayoutGap="1em">
+
+                                            <label style="display: flex;" class="title">Title: <span
+                                                    class="ellipsis-text"
+                                                    [matTooltip]="note?.title">{{ note?.title}}</span></label>
+                                            <mat-checkbox [(ngModel)]="note.completed"
+                                                (ngModelChange)="updateAllComplete()"></mat-checkbox>
+                                        </div>
+                                        <div *ngIf="note?.createdTime">
+                                            <label flexLayout="row" class="content">Created Time:
+                                                <span>{{ note?.createdTime | date : 'medium' }}</span></label>
+                                        </div>
+                                        <div *ngIf="note?.editedTime">
+                                            <label flexLayout="row" class="content">Edited Time:
+                                                <span>{{ note?.editedTime | date :'medium' }}</span></label>
+                                        </div>
                                     </div>
-                                    <div *ngIf="note?.createdTime">
-                                        <label flexLayout="row" class="content">Created Time:
-                                            <span>{{ note?.createdTime | date : 'medium' }}</span></label>
+
+                                    <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="1em">
+                                        <!-- <button mat-mini-fab color="primary">
+                                        <mat-icon matTooltip="delete note">delete_forever</mat-icon>
+                                    </button> -->
+                                        <button mat-mini-fab color="primary"
+                                            (click)="opendilogue(i);note.action=&apos;edit&apos;">
+                                            <mat-icon matTooltip="edit note">edit</mat-icon>
+                                        </button>
                                     </div>
-                                    <div *ngIf="note?.editedTime">
-                                        <label flexLayout="row" class="content">Edited Time:
-                                            <span>{{ note?.editedTime | date :'medium' }}</span></label>
-                                    </div>
-                                </div>
-        
-                                <div fxLayout="row" fxLayoutAlign="end">
-                                    <button mat-mini-fab color="primary" (click)="opendilogue(i);note.action=&apos;edit&apos;">
-                                        <mat-icon matTooltip="edit note">edit</mat-icon>
-                                    </button>
-                                </div>
-                            </mat-card-content>
-                        </mat-card>
-                    </mat-grid-tile>
-                    
-                </mat-grid-list>
-               
+                                </mat-card-content>
+                            </mat-card>
+                        </mat-grid-tile>
+
+                    </mat-grid-list>
+
+                </div>
+            </div>
+            <div *ngIf="Notes.length == 0" fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+                <h1>Create a Note</h1>
+            </div>
+            <div fxLayout="row" fxFlex="10" fxLayoutAlign="end">
+                <button mat-mini-fab>
+                    <mat-icon class="pointer" matTooltip="Create New Note" (click)="createnotes()">note_add</mat-icon>
+                </button>
             </div>
         </div>
-        <div *ngIf="Notes.length == 0" fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
-            <h1>Create a Note</h1>
-        </div>
-        <div fxLayout="row" fxFlex="10" fxLayoutAlign="end">
-            <button mat-mini-fab>
-                <mat-icon class="pointer" matTooltip="Create New Note" (click)="createnotes()">note_add</mat-icon>
-            </button>
-        </div>
     </div>
-</div>
 </div>

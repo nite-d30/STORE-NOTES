@@ -21,5 +21,8 @@ export class NotesService {
     return this.http.put(`${this.baseUrl}/updatenotes`,obj);
   }
 
+  deletnotes(uuids){
+    return this.http.post(`${this.baseUrl}/deletenotes`,uuids)
+  }
 
 }

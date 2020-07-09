@@ -14,22 +14,56 @@ export class NotesComponent implements OnInit {
 
   Notes;
   email;
+  allComplete: boolean = false;
+
+
   constructor(public dialog: MatDialog, private rout: Router, private notesService: NotesService, private userService: UserserviceService) { }
 
   ngOnInit(): void {
     this.getNotes();
-    console.log(this.Notes)
-   
+
   }
 
   getNotes() {
-    this.email = this.userService.getUserPayload()['username'] 
+    this.email = this.userService.getUserPayload()['username']
     this.notesService.getNotes(this.email).subscribe(res => {
       this.Notes = res['notes'];
-      
+
     })
   }
 
+  setAll(completed: boolean) {
+    this.allComplete = completed;
+    if (this.Notes == null) {
+      return;
+    }
+    this.Notes.forEach(t => t.completed = completed);
+  }
+  someComplete(): boolean {
+    if (this.Notes.length < 0) {
+      return false;
+    }
+    return this.Notes.filter(t => t.completed).length > 0 && !this.allComplete;
+  }
+
+  updateAllComplete() {
+    this.allComplete = this.Notes != null && this.Notes.every(t => t.completed);
+    if(this.Notes.find(t=> t.completed == true))
+        return true
+  }
+
+deletenotes(){
+let delarr=[];
+  this.Notes.filter((el,index) => {
+    if(el.completed){
+        delarr.push(el.uuid)
+    }
+  });
+  if(delarr.length)
+      this.notesService.deletnotes(delarr).subscribe();
+      
+  this.getNotes();
+}
 
   createnotes() {
     let notesobj = {
@@ -54,7 +88,7 @@ export class NotesComponent implements OnInit {
     }).afterClosed().subscribe(result => {
       if (result.status) {
         if (result.notesobj['action'] == 'create') {
-          result.notesobj['email']=this.userService.getUserPayload()['username'];
+          result.notesobj['email'] = this.userService.getUserPayload()['username'];
           this.notesService.storeNotes(result.notesobj).subscribe();
           this.getNotes();
         }
@@ -69,5 +103,5 @@ export class NotesComponent implements OnInit {
       }
     }
     );
-}
+  }
 }
