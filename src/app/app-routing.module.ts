@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component'
 import { AuthGuard } from './auth/auth.guard'
 import { NotesComponent } from './notes/notes.component';
+import {SignupComponent} from './signup/signup.component'
 const routes: Routes = [
   {
     path: 'home', component: HomeComponent, children: [
@@ -14,6 +15,7 @@ const routes: Routes = [
   }
   ,
   { path: 'login', component: UserloginComponent },
+  {path:'signup',component:SignupComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' }, { path: '**', redirectTo: '/login', pathMatch: 'full' }];
 
 @NgModule({

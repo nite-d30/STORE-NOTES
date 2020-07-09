@@ -1,7 +1,7 @@
 <div fxLayout="column" fxFlex="100" fxLayoutAlign="center center">
     <div fxLayout="row" fxFlex="100" style="width: 100%;" fxLayoutAlign="start stretch" fxLayoutAlign="start stretch">
         <div fxFlex="100" style="width:100%;height:100%;" fxLayout="column" fxLayoutAlign="space-between">
-            <div *ngIf="Notes.length>0" fxLayout="column wrap" fxFlex="100">
+            <div *ngIf="Notes" fxLayout="column wrap" fxFlex="100">
                 <mat-toolbar *ngIf="updateAllComplete()" style="background-color: rgb(200, 214, 214);">
                     <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="space-between center">
                         <mat-checkbox [checked]="allComplete" [indeterminate]="someComplete()"

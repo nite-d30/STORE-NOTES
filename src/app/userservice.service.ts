@@ -17,6 +17,10 @@ export class UserserviceService {
       return this.http.post(`http://localhost:8000/api/user/login`,userobj,this.noAuthHttpHeader);
    }
 
+userRegistration(userobj){
+      return this.http.post(`http://localhost:8000/api/user/register`,userobj,this.noAuthHttpHeader);
+}
+
    setToken(token:string){
      localStorage.setItem("token",token);
    }

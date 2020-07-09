@@ -17,10 +17,12 @@ export class NotesComponent implements OnInit {
   allComplete: boolean = false;
 
 
-  constructor(public dialog: MatDialog, private rout: Router, private notesService: NotesService, private userService: UserserviceService) { }
+  constructor(public dialog: MatDialog, private rout: Router, private notesService: NotesService, private userService: UserserviceService) { 
+    this.getNotes();
+  }
 
   ngOnInit(): void {
-    this.getNotes();
+    
 
   }
 
@@ -80,7 +82,7 @@ let delarr=[];
       currentIndex = index;
     }
     this.dialog.open(CreateNoteComponent, {
-      width: '50%',
+      width: '40%',
       data: this.Notes[currentIndex],
       autoFocus: false,
       restoreFocus: false,

@@ -1,37 +1,45 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxFlex="100" class="background">
-    <mat-card style="width:40%" fxLayout="column" fxLayoutGap="1em">
-        <div fxLayout="row" style="background-color: black;color: white;" fxFlex="40" fxLayoutAlign="center center">
-          <h2 style="margin: 15px;">   Login here</h2>
+    <mat-card style="width:30%;padding: 0px;" fxLayout="column" fxLayoutGap="1em">
+        <div fxLayout="row" style="background-color:rgb(104, 97, 87);color: white;" fxFlex="40" fxLayoutAlign="center center">
+            <h2 style="margin: 15px;"> Login here</h2>
         </div>
         <div fxLayout="row" class="login-icon" fxLayoutAlign="center center">
             <mat-icon>account_circle</mat-icon>
         </div>
-        <form [formGroup]="userdata" (ngSubmit)="submit(userdata.value)">
-            <div fxLayout="column" fxlayoutAlign="center center">
-                <mat-form-field appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input matInput placeholder="Email" type="text" formControlName="email" value="" >
+        <div fxLayout="row" fxLayoutAlign="center center" fxFlex="100">
+            <form [formGroup]="userdata" (ngSubmit)="submit(userdata.value)" fxFlex="80">
 
-                    <mat-icon matSuffix
-                        [class]="userdata.get('email').valid && !userdata.controls.email.errors?.pattern ? &apos;isvalid &apos;:&apos;isinvalid&apos;">
-                        {{userdata.get('email').valid && !userdata.controls.email.errors?.pattern ?  'check_box' : 'check_box_outline_blank'}}
-                    </mat-icon>
+                <div fxLayout="column" fxFlex="100" fxlayoutAlign="center center">
 
-                    <mat-error *ngIf="userdata.controls.email.errors?.pattern">invalid email</mat-error>
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"
-                        formControlName="password" value="" required>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" type="text" formControlName="email" value="">
 
-                    <mat-icon matSuffix class="pointer" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-icon matSuffix
+                            [class]="userdata.get('email').valid && !userdata.controls.email.errors?.pattern ? &apos;isvalid &apos;:&apos;isinvalid&apos;">
+                            {{userdata.get('email').valid && !userdata.controls.email.errors?.pattern ?  'check_box' : 'check_box_outline_blank'}}
+                        </mat-icon>
 
-                    <mat-error *ngIf="userdata.controls.password.errors?.pattern">invalid password</mat-error>
-                </mat-form-field>
-                <div fxLayout="row" fxLayoutAlign="center">
-                    <button class="login-button" mat-button type="submit">Login</button>
+                        <mat-error *ngIf="userdata.controls.email.errors?.pattern">invalid email</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'"
+                            formControlName="password" value="" required>
+
+                        <mat-icon matSuffix class="pointer" (click)="hide = !hide">
+                            {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+                        <mat-error *ngIf="userdata.controls.password.errors?.pattern">invalid password</mat-error>
+                    </mat-form-field>
+                    <div fxLayout="column" fxLayoutGap="1em" fxLayoutAlign="center center">
+                        <button class="login-button" mat-button type="submit">Login</button> <div fxFlex="20"> Create an account <span class="link pointer" routerLink="/signup">Sign Up</span></div>
+                    </div>
+
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
+        <div></div>
     </mat-card>
 </div>

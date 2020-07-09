@@ -11,10 +11,10 @@
   align-items: center;
   justify-content: center;
   width: 200px;
-  background: rgba(20, 20, 20, 0.76);
+  background: rgb(104, 97, 87);
 }
 .example-header {
-  background-color: rgba(20, 20, 20, 0.76);
+  background-color: rgb(104, 97, 87);
   position: fixed;
 }
 

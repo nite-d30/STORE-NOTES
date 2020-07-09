@@ -1,0 +1,10 @@
+.background{
+    background-image: url('../../assets/notescomputer.jpg');
+    background-size: cover;
+ }
+
+ 
+.signup-btn{
+    background-color: rgb(104, 97, 87);
+    color: white;
+}

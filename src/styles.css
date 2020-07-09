@@ -8,7 +8,7 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-app-userlogin,
+app-userlogin,app-signup,
 app-dashboard {
     height: 100%;
 }
@@ -50,4 +50,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 40px;
     width: 50px;
     height: 50px;
+    color:rgb(104, 97, 87)
 }
