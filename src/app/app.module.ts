@@ -18,6 +18,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {AuthGuard} from './auth/auth.guard'
 import {AuthInterceptor} from './auth/auth.intercepter';
 import { NotesComponent } from './notes/notes.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NotesComponent } from './notes/notes.component';
     HomeComponent,
     CreateNoteComponent,
     DashboardComponent,
-    NotesComponent
+    NotesComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

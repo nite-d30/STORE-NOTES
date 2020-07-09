@@ -1,0 +1,46 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFlex="100" class="background">
+    <!-- <div fxLayout="column " fxLayoutAlign="center center" [fxShow]="true" fxFlex="100" [fxHide]="false"> -->
+      <!-- <div fxLayout="column" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false" fxFlex.xs="70"> -->
+        <mat-card style="width:30%;padding: 0px;">
+          <mat-card-content fxLayout="column" fxLayoutGap="1em">
+            <div fxLayout="row" style="color:white;background-color: rgb(104, 97, 87);" fxFlex="40" fxLayoutAlign="center center">
+              <h2 style="margin: 15px;"> SignUp here</h2>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center" fxFlex="100">
+            <form [formGroup]="userdetail" fxFlex="80">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;">
+                  <input matInput placeholder="Username" required formControlName="username">
+                  <mat-error align="start" *ngIf="userdetail.controls.username.errors?.invalid">please Enter username</mat-error>
+                  <mat-label>Username</mat-label>
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;">
+                  <input matInput type="email" placeholder="email" required formControlName="email">
+                  <mat-error align="start" *ngIf="userdetail.controls.email.errors?.pattern">Enter valid email</mat-error>
+                  <mat-label>Email</mat-label>
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;">
+                  <input matInput placeholder="Number" required formControlName="phonenumber">
+                  <mat-error align="start" *ngIf="userdetail.controls.phonenumber.errors?.pattern">Enter valid phone number</mat-error>
+                  <mat-label>Phone Number</mat-label>
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;">
+                  <input matInput type="password" placeholder="Password" required formControlName="password">
+                  <mat-error align="start" *ngIf="userdetail.controls.password.errors?.pattern">Enter valid password</mat-error>
+                  <mat-label>Password</mat-label>
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;">
+                  <input matInput type="password" placeholder="Confirm password" required formControlName="confirmpassword">
+                  <mat-error align="start" *ngIf="userdetail.controls.confirmpassword?.checkPasswords">password incorrect</mat-error>
+                  <mat-label>Confirm Password</mat-label>
+                </mat-form-field>
+                <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-button class="signup-btn" (click)="submit(userdetail.value)">Sign Up</button></div>
+              </div>
+            </form>
+            </div>
+            <div></div>
+          </mat-card-content>
+        </mat-card>
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
