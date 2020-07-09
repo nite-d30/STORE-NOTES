@@ -25,7 +25,8 @@
                   <mat-label>Phone Number</mat-label>
                 </mat-form-field>
                 <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;">
-                  <input matInput type="password" placeholder="Password" required formControlName="password">
+                  <input matInput type="password"  placeholder="Password" required formControlName="password">
+                  <mat-icon class="pointer" [matMenuTriggerFor]="menu" matSuffix>error_outline</mat-icon>
                   <mat-error align="start" *ngIf="userdetail.controls.password.errors?.pattern">Enter valid password</mat-error>
                   <mat-label>Password</mat-label>
                 </mat-form-field>
@@ -44,3 +45,14 @@
       <!-- </div> -->
     <!-- </div> -->
   </div>
+
+  <mat-menu #menu="matMenu">
+   <div>
+      <ul>
+        <li fxLayout="row" fxLayoutGap="10px"><span>Should be minimum 10 characters</span><mat-icon style="color: rgb(109, 218, 109);">done</mat-icon></li>
+        <li fxLayout="row" fxLayoutGap="10px"><span>Should except atleast one alphabet</span> <mat-icon style="color: rgb(109, 218, 109);">done</mat-icon></li>
+        <li fxLayout="row" fxLayoutGap="10px"><span>Should except atleast one number or special character</span> <mat-icon style="color: rgb(109, 218, 109);">done</mat-icon></li>
+      </ul>
+    </div>
+    
+    </mat-menu>

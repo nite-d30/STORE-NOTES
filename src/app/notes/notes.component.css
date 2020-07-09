@@ -9,3 +9,58 @@
 .content{
     font-size: 10px;
 }
+
+
+/* pagination */
+.pagination-active {
+    background-color: rgb(104, 97, 87);
+    color: white;
+  }
+  
+  /* styles for pagination numbers */
+  .pagination {
+    font-size: 12px;
+    padding: 0px;
+    margin: 0px;
+  
+   
+  }
+  .pagination li {
+      display: inline;
+      text-align: center;
+      padding: 6px;
+      margin: 0px 5px;
+    }
+  
+   .pagination .active {
+      background-color: rgb(104, 97, 87);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      width: 16px;
+      height: 16px;
+    }
+  
+  .pagination li {
+    border-radius: 50%;
+    text-align: center;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .pagination li:not(:hover) {
+    transition: 1s;
+  }
+  
+  .pagination li:hover {
+    background-color: rgb(104, 97, 87);
+    color: #fff;
+    transition: 1.2s;
+    cursor: pointer;
+  }
+  
+  .pagination-arrow {
+    padding: 1px;
+    cursor: pointer;
+  }
+  
