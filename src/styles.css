@@ -52,3 +52,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     height: 50px;
     color:rgb(104, 97, 87)
 }
+
+.mat-menu-panel{
+    max-width: 100% !important;
+}
+
