@@ -13,14 +13,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
-import { NotesComponent } from './notes/notes.component';
 @NgModule({
     declarations: [],
     imports: [MatFormFieldModule,
         MatInputModule,
         MatMenuModule,
-
+        MatCheckboxModule,
         FlexLayoutModule,
         MatButtonModule,
         MatCardModule,
@@ -40,7 +40,7 @@ import { NotesComponent } from './notes/notes.component';
         MatButtonModule,
         MatMenuModule,
         MatCardModule,
-    
+        MatCheckboxModule,
         MatSidenavModule,
         MatSnackBarModule,
         MatDialogModule,
