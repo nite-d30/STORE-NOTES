@@ -31,7 +31,7 @@
                 </mat-form-field>
                 <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;always&apos;">
                   <input matInput type="password" placeholder="Confirm password" required formControlName="confirmpassword">
-                  <mat-error align="start" *ngIf="userdetail.controls.confirmpassword?.checkPasswords">password incorrect</mat-error>
+                  <mat-error align="start" *ngIf="userdetail.controls.confirmpassword.errors?.valid">password incorrect</mat-error>
                   <mat-label>Confirm Password</mat-label>
                 </mat-form-field>
                 <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><button mat-button class="signup-btn" (click)="submit(userdetail.value)">Sign Up</button></div>
