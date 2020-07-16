@@ -12,10 +12,11 @@
                     </div>
 
                 </mat-toolbar>
-                <div fxLayout="row wrap" fxLayoutGap="1em" style="width: 100%;">
-                    <mat-grid-list cols="3" rowHeight="170px" style="width:100%;">
-                        <mat-grid-tile *ngFor="let note of Notes;let i=index">
-                            <mat-card class="card-background">
+                <div fxLayout="row wrap" fxLayoutGap="1em" style="width: 100%;" >
+                    <mat-grid-list cols="3" rowHeight="170px" style="width:100%;" >
+                        <mat-grid-tile *ngFor="let note of Notes;let i=index" @listAnimation>
+                            <div class="col">
+                            <mat-card class="card-background" >
                                 <mat-card-content fxFlex="100" fxLayout="column" fxLayoutGap="1em"
                                     fxLayoutAlign="space-between">
 
@@ -49,6 +50,7 @@
                                     </div>
                                 </mat-card-content>
                             </mat-card>
+                        </div>
                         </mat-grid-tile>
 
                     </mat-grid-list>

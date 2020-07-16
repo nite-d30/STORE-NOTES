@@ -13,8 +13,8 @@ export class NotesService {
   }
 
 
-  getNotes(email) {
-    return this.http.get(`${this.baseUrl}/getnotes?email=${email}`)
+  getNotes(filterObj) {
+    return this.http.post(`${this.baseUrl}/getnotes`,filterObj)
   }
 
   updateNotes(obj){
